@@ -1,4 +1,5 @@
 #include "JuegoMesa.h"
+#include "Objeto.h"
 
 //constructor de todos los atributos, hereda del constructor de objeto
 JuegoMesa::JuegoMesa(string n, int a, Estado e, int edad, int c):Objeto(n,a,e) {
@@ -30,7 +31,6 @@ int JuegoMesa::getCantJugadores(){
 
 // funcion que devuelve string de la forma Juego: Nombre, AñoComprado, Estado, EdadRecomendada, CantJugadores
 string JuegoMesa::toString(){
-    return 0;
-    //string texto = "Juego: " + nombre + ", " + añoComprado + ", " + estado + ", " + edadRecomendada + ", " + cantJugadores;
-    //return texto
+    string texto = "Juego: " + getNombre() + ", " + getAñoComprado() + ", " + getEstado() + ", " + getEdadRecomendada() + ", " + getCantJugadores();
+    return texto
 };
