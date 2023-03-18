@@ -21,3 +21,12 @@ string DTObjetoRoto::getNombreNinio(){
 }
 
 DTObjetoRoto::~DTObjetoRoto(){}
+
+ostream &operator<<(ostream &o,DTObjetoRoto &d){
+    string resultado=d.getNombreObjeto();
+    if (d.getPrestado()==true)
+    resultado=resultado+" ,PRESTADO SI, "+d.getNombreNinio();
+    else resultado=resultado+" ,PRESTADO NO";
+    o<<resultado;
+    return o; 
+}
