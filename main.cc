@@ -4,6 +4,7 @@ using namespace std;
 #include "Objeto.h"
 #include "Objeto.cc"
 #include "JuegoMesa.cc"
+#include <string>
   
 int main()
 {
@@ -17,5 +18,8 @@ int main()
     //JuegoMesa MozoCartas = new JuegoMesa("Mozo de Cartas", 2019, Nuevo, 7, 4);
     JuegoMesa Dados = JuegoMesa("Dados", 2020, estadoDados, 2, 6);
     //JuegoMesa Dados = new JuegoMesa("Dados", 2020, Roto, 2, 6);
+
+    // prueba toString()
+    String mostrar = Uno.toString();
     return   0; 
 }

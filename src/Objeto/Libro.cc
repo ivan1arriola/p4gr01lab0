@@ -1,4 +1,5 @@
 #include "libro.h"
+#include <string>
 
 Libro::Libro(string n,int a,Estado e,int c,string au):Objeto(n,a,e) {
     cantDePaginas=c;
@@ -23,6 +24,11 @@ string Libro::getAutor(){
     return autor;
 }
 
-string Libro::toString(){return 0;}
+//Retorna Libro: Nombre, AñoComprado, Estado, Autor, CantPaginas
+
+string Libro::toString(){
+    string texto = "Libro: " + getNombre() + ", " + getAñoComprado() + ", " + getEstado() + ", " + getAutor() + ", " + getCantDePaginas();
+    return texto;
+}
 
 Libro::~Libro(){}
