@@ -1,5 +1,7 @@
-#include "libro.h"
+#include "Libro.h"
+#include <stdlib.h>
 #include <string>
+using namespace std;
 
 Libro::Libro(string n,int a,Estado e,int c,string au):Objeto(n,a,e) {
     cantDePaginas=c;

@@ -1,4 +1,7 @@
-#include "objeto.h"
+#include "Objeto.h"
+#include <stdlib.h>
+#include <string>
+using namespace std;
 
 Objeto::Objeto(string n,int a,Estado e){
     nombre=n;

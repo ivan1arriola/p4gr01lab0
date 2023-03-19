@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
 #include "Objeto.h"
+#include <stdlib.h>
 using namespace std;
 
-class Libro:public Objeto
+class Libro : public Objeto
 {
     private:
         int cantDePaginas;
@@ -16,7 +17,7 @@ class Libro:public Objeto
         int getCantDePaginas();
         string getAutor();
 
-        Libro(string nombre, int añoComprado, Estado estado, int cantDePaginas, string autor);
+        Libro(string nombre, int anio, Estado estado, int cantPaginas, string autor);
         Libro();
 
         ~Libro();

@@ -1,6 +1,8 @@
 #include "JuegoMesa.h"
 #include "Objeto.h"
+#include <stdlib.h>
 #include <string>
+using namespace std;
 
 //constructor de todos los atributos, hereda del constructor de objeto
 JuegoMesa::JuegoMesa(string n, int a, Estado e, int edad, int c):Objeto(n,a,e) {
