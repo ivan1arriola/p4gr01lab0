@@ -28,6 +28,8 @@ int Objeto::getAñoComprado(){
     return añoComprado;
 }
 
-Estado Objeto::getEstado(){
-    return estado;
+string Objeto::getEstado(){
+    if (estado==Estado::Nuevo) return "Nuevo";
+    else if (estado==Estado::BienConservado) return "BienConservado";
+    else return "Roto"; 
 }
