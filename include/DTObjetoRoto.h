@@ -1,3 +1,6 @@
+#ifndef DTOBJETOROTO
+#define DTOBJETOROTO
+
 #include <iostream>
 #include <string>
 
@@ -17,3 +20,4 @@ class DTObjetoRoto{
         ~DTObjetoRoto();
 };
 
+#endif
