@@ -5,9 +5,12 @@
 #include <string>
 #include <vector>
 #include "Estado.h"
-#include "Niño.h"
+
+
 
 using namespace std;
+
+class Ninio;
 
 class Objeto
 {
@@ -15,7 +18,7 @@ private:
     string nombre;
     int anioComprado;
     Estado estado;
-    Ninio prestadoA; //Link al niño al que fue prestado ese objeto
+    Ninio *prestadoA; //Puntero al niño al que fue prestado ese objeto
 
 public:
     virtual string toString() = 0;
@@ -34,5 +37,6 @@ public:
 
     virtual ~Objeto();
 };
+#include "Niño.h"
 
 #endif

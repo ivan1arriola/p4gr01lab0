@@ -6,9 +6,9 @@
 
 using namespace std;
 
-Ninio::Ninio(){
-  
-}
+
+// Constructores
+Ninio::Ninio(){}
 
 Ninio::Ninio(string name, int age, string address, string phone){
   nombre = name;
@@ -16,6 +16,8 @@ Ninio::Ninio(string name, int age, string address, string phone){
   direccion = address;
   telefono = phone;
 }
+
+//Setters
 
 void Ninio::setNombre(string name){
   nombre = name;
@@ -33,13 +35,7 @@ void Ninio::setTelefono(string phone){
   telefono = phone;
 }
 
-void Ninio::asignarLibro(Libro &l){
-  librosprest.push_back(l);
-}
-
-void Ninio::asignarJuegoMesa(JuegoMesa &jm){
-  juegosprest.push_back(jm);
-}
+//Getters
 
 string Ninio::getNombre(){
   return nombre;
@@ -57,25 +53,26 @@ string Ninio::getTelefono(){
   return telefono;
 }
 
-int Ninio::tamVectorLibros(){
-  return librosprest.capacity();
+// Operaciones Ninio - Objeto
+
+void Ninio::asignarObjeto(Objeto &obj){
+  objetosPrestados.push_back(&obj); // Pasar puntero obj a lista de punteros objetosPrestados.
+  obj.asignarNinio(*this); // asignar este niño al objeto obj.  
 }
 
-int Ninio::tamVectorJuegos(){
-  return juegosprest.capacity();
-}
+
+
 
 vector<string> Ninio::listarObjetosPrestados(){
   vector<string> stringsObjetos;
-  for (int i = 0; i < librosprest.capacity(); i++){
-    stringsObjetos.push_back(librosprest[i].toString());
+
+  for (int i = 0; i < (int)objetosPrestados.size(); i++){
+  stringsObjetos.push_back(objetosPrestados[i]->toString());
   }
-  for (int j = 0; j < juegosprest.capacity(); j++){
-    stringsObjetos.push_back(juegosprest[j].toString());
-  }
+
   return stringsObjetos;
 }
 
 Ninio::~Ninio(){
-  
+  // Falta una operacion para destruir objetosPrestados
 }

@@ -1,34 +1,25 @@
-CXX = g++
-CXXFLAGS = -std=c++11 -Wall -Wextra -Wpedantic -Iinclude
-LDFLAGS =
+CXX=g++
+CXXFLAGS=-Wall -std=c++11
+LDLIBS=
 
-SRCDIR = src
-INCDIR = include
-OBJDIR = obj
+SRCDIR=.
+OBJDIR=obj
+BINDIR=bin
 
-SRC = $(wildcard $(SRCDIR)/*.cc)
-OBJ = $(SRC:$(SRCDIR)/%.cc=$(OBJDIR)/%.o)
-
-TARGET = main
+SOURCES=$(wildcard $(SRCDIR)/*.cc)
+HEADERS=$(wildcard $(SRCDIR)/*.h)
+OBJECTS=$(patsubst $(SRCDIR)/%.cc,$(OBJDIR)/%.o,$(SOURCES))
+EXECUTABLE=$(BINDIR)/main
 
 .PHONY: all clean
 
-all: $(TARGET)
+all: $(EXECUTABLE)
 
-$(TARGET): $(OBJ)
-	$(CXX) $(LDFLAGS) $^ -o $@
+$(EXECUTABLE): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) $(LDLIBS) -o $(EXECUTABLE)
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.cc
+$(OBJDIR)/%.o: $(SRCDIR)/%.cc $(HEADERS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(TARGET)
-
-# Dependencias
-$(OBJDIR)/DTObjetoRoto.o: $(INCDIR)/DTObjetoRoto.h
-$(OBJDIR)/Estado.o: $(INCDIR)/Estado.h
-$(OBJDIR)/JuegoMesa.o: $(INCDIR)/JuegoMesa.h $(INCDIR)/Objeto.h
-$(OBJDIR)/Libro.o: $(INCDIR)/Libro.h $(INCDIR)/Objeto.h
-$(OBJDIR)/Ninio.o: $(INCDIR)/Ninio.h $(INCDIR)/Objeto.h
-$(OBJDIR)/Objeto.o: $(INCDIR)/Objeto.h
-$(OBJDIR)/DTObjetoRoto.o: $(INCDIR)/DTObjetoRoto.h
+	rm -f $(OBJECTS) $(EXECUTABLE)

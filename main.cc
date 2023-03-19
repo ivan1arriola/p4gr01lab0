@@ -6,7 +6,7 @@ using namespace std;
 //includes
 #include "JuegoMesa.h"
 #include "Libro.h"
-#include "Ninio.h"
+#include "Niño.h"
 
   
 int main()

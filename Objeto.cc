@@ -27,7 +27,7 @@ void Objeto::setEstado(Estado e){
 }
 
 void Objeto::asignarNinio(Ninio &kid){
-    prestadoA = kid;
+    prestadoA = &kid;
 }
 
 string Objeto::getNombre(){
