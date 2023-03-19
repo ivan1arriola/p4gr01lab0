@@ -1,33 +1,47 @@
-#include "objeto.h"
+#include <string>
+#include <vector>
+#include "Objeto.h"
 
-Objeto::Objeto(string n,int a,Estado e){
-    nombre=n;
-    añoComprado=a;
-    estado=e;
+using namespace std;
+
+Objeto::Objeto(){
+
 }
 
-Objeto::Objeto(){}
+Objeto::Objeto(string n, int a, Estado e){
+    nombre = n;
+    anioComprado = a;
+    estado = e;
+}
 
 void Objeto::setNombre(string n){
-    nombre=n;
+    nombre = n;
 }
 
-void Objeto::setAñoComprado(int a){
-    añoComprado=a;
+void Objeto::setAnioComprado(int a){
+    anioComprado = a;
 }
 
 void Objeto::setEstado(Estado e){
-    estado=e;
+    estado = e;
+}
+
+void Objeto::asignarNinio(Ninio &kid){
+    prestadoA = kid;
 }
 
 string Objeto::getNombre(){
     return nombre;
 }
 
-int Objeto::getAñoComprado(){
-    return añoComprado;
+int Objeto::getAnioComprado(){
+    return anioComprado;
 }
 
 Estado Objeto::getEstado(){
     return estado;
+}
+
+Objeto::~Objeto(){
+
 }

@@ -1,3 +1,6 @@
+#ifndef JUEGOMESA
+
+#define JUEGOMESA
 #include <iostream>
 #include <string>
 #include "Objeto.h"
@@ -13,11 +16,14 @@ class JuegoMesa:public Objeto
 
         void setEdadRecomendada(int edad);
         void setCantJugadores(int cantJugadores);
+
         int getEdadRecomendada();
         int getCantJugadores();
 
-        JuegoMesa(string nombre, int añoComprado, Estado estado, int edadRecomendada, int cantJugadores);
+        JuegoMesa(string nombre, int anioComprado, Estado estado, int edadRecomendada, int cantJugadores);
         JuegoMesa();
 
         ~JuegoMesa();
-}
+};
+
+#endif

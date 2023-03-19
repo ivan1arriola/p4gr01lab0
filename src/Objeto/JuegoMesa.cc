@@ -1,5 +1,5 @@
 #include "JuegoMesa.h"
-#include "Objeto.h"
+#include <sstream>
 
 //constructor de todos los atributos, hereda del constructor de objeto
 JuegoMesa::JuegoMesa(string n, int a, Estado e, int edad, int c):Objeto(n,a,e) {
@@ -17,7 +17,7 @@ void JuegoMesa::setEdadRecomendada(int edad){
 };
 
 
-int JuegoMesa::setCantJugadores(int cant){
+void JuegoMesa::setCantJugadores(int cant){
     cantJugadores = cant;
 };
 
@@ -31,6 +31,31 @@ int JuegoMesa::getCantJugadores(){
 
 // funcion que devuelve string de la forma Juego: Nombre, AñoComprado, Estado, EdadRecomendada, CantJugadores
 string JuegoMesa::toString(){
-    string texto = "Juego: " + getNombre() + ", " + getAñoComprado() + ", " + getEstado() + ", " + getEdadRecomendada() + ", " + getCantJugadores();
-    return texto
+    stringstream ss_a;
+    int a = getAnioComprado();
+    ss_a << a;
+    string s_a = ss_a.str();
+    stringstream ss_cj;
+    int cj = getCantJugadores();
+    ss_cj << cj;
+    string s_cj = ss_cj.str();
+    stringstream ss_er;
+    int er = getEdadRecomendada();
+    ss_er << er;
+    string s_er = ss_er.str();
+    Estado e = getEstado();
+    string s_e;
+    if (e == Nuevo)
+        s_e = "Nuevo";
+    else
+        if (e == BienConservado)
+            s_e = "BienConservado";
+        else
+            s_e = "Roto";
+    string texto = "Juego: " + getNombre() + ", " + s_a + ", " + s_e + ", " + s_er + ", " + s_cj;
+    return texto;
 };
+
+JuegoMesa::~JuegoMesa(){
+
+}
