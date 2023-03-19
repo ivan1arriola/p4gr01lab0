@@ -3,9 +3,9 @@
 #include <string>
 
 //constructor de todos los atributos, hereda del constructor de objeto
-JuegoMesa::JuegoMesa(string n, int a, Estado e, int edad, int c):Objeto(n,a,e) {
+JuegoMesa::JuegoMesa(string nombre, int anio, Estado estado, int edad, int cant):Objeto(nombre,anio,estado) {
     edadRecomendada=edad; //this->edadRecomendada = edad
-    cantJugadores=c; //this->cantJugadores = c;
+    cantJugadores=cant; //this->cantJugadores = cant;
 };
 
 //constructor vacío
