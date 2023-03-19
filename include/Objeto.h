@@ -1,3 +1,6 @@
+#ifndef OBJETO
+#define OBJETO
+
 #include <iostream>
 #include <string>
 
@@ -16,6 +19,8 @@ private:
     string nombre;
     int añoComprado;
     Estado estado;
+    bool prestado;
+    string nombreNinio;
 
 public:
     virtual string toString() = 0;
@@ -24,10 +29,15 @@ public:
     void setNombre(string nombre);
     void setAñoComprado(int año);
     void setEstado(Estado estado);
+    void setPrestado(bool prestado);
+    void setNombreNinio(string nombreninio);
 
     string getNombre();
     int getAñoComprado();
     Estado getEstado();
+    bool getPrestado();
+    string getNombreNinio();
 
     virtual ~Objeto();
 };
+#endif

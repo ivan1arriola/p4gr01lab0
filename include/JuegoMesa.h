@@ -16,7 +16,7 @@ class JuegoMesa:public Objeto
         int getEdadRecomendada();
         int getCantJugadores();
 
-        JuegoMesa(string nombre, int añoComprado, Estado estado, int edadRecomendada, int cantJugadores);
+        JuegoMesa(string nombre, int añoComprado, Estado estado, bool prestado, string nombreNinio, int edadRecomendada, int cantJugadores);
         JuegoMesa();
 
         ~JuegoMesa();

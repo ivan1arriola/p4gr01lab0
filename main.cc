@@ -22,6 +22,5 @@ int main()
     // prueba toString()
     String mostrar = Uno.toString();
 
-    JuegoMesa j = JuegoMesa()
-    return   0; 
+    JuegoMesa j = new JuegoMesa("asd",    return   0; 
 }

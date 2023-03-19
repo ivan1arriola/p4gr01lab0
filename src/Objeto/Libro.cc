@@ -1,9 +1,10 @@
-#include "Libro.h"
+#include "../Libro.h"
+#include "../Objeto.h"
 #include <stdlib.h>
 #include <string>
 using namespace std;
 
-Libro::Libro(string n,int a,Estado e,int c,string au):Objeto(n,a,e) {
+Libro::Libro(string n,int a,Estado e, bool prest, string nomNin, int c,string au):Objeto(n,a,e, prest, nomNin) {
     cantDePaginas=c;
     autor=au;
 }

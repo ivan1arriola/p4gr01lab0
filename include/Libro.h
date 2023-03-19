@@ -1,3 +1,6 @@
+#ifndef LIBRO
+#define LIBRO
+
 #include <iostream>
 #include <string>
 #include "Objeto.h"
@@ -17,8 +20,10 @@ class Libro : public Objeto
         int getCantDePaginas();
         string getAutor();
 
-        Libro(string nombre, int anio, Estado estado, int cantPaginas, string autor);
+        Libro(string nombre, int anio, Estado estado, bool prestado, string nombreNinio, int cantPaginas, string autor);
         Libro();
 
         ~Libro();
 }
+
+#endif

@@ -1,4 +1,4 @@
-#include "Objeto.h"
+#include "../Objeto.h"
 #include <stdlib.h>
 #include <string>
 using namespace std;
@@ -23,6 +23,14 @@ void Objeto::setEstado(Estado e){
     estado=e;
 }
 
+void Objeto::setPrestado(bool p){
+    prestado = p;
+}
+
+void Objeto::setNombreNinio(string n){
+    nombreNinio = n;
+}
+
 string Objeto::getNombre(){
     return nombre;
 }
@@ -34,3 +42,13 @@ int Objeto::getAñoComprado(){
 Estado Objeto::getEstado(){
     return estado;
 }
+
+bool Objeto::getPrestado(){
+    return prestado;
+}
+
+string Objeto::getNombreNinio(){
+    return nombreNinio;
+}
+
+Objeto::~Objeto(){}

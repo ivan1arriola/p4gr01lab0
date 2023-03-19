@@ -1,11 +1,11 @@
-#include "JuegoMesa.h"
-#include "Objeto.h"
+#include "../JuegoMesa.h"
+#include "../Objeto.h"
 #include <stdlib.h>
 #include <string>
 using namespace std;
 
 //constructor de todos los atributos, hereda del constructor de objeto
-JuegoMesa::JuegoMesa(string n, int a, Estado e, int edad, int c):Objeto(n,a,e) {
+JuegoMesa::JuegoMesa(string n, int a, Estado e, bool prest, string nomNin, int edad, int c):Objeto(n,a,e, prest, nomNin) {
     edadRecomendada=edad; //this->edadRecomendada = edad
     cantJugadores=c; //this->cantJugadores = c;
 };
@@ -37,3 +37,5 @@ string JuegoMesa::toString(){
     string texto = "Juego: " + getNombre() + ", " + getAñoComprado() + ", " + getEstado() + ", " + getEdadRecomendada() + ", " + getCantJugadores();
     return texto;
 };
+
+JuegoMesa::~JuegoMesa(){}
