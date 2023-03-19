@@ -18,7 +18,7 @@ private:
     Ninio prestadoA; //Link al niño al que fue prestado ese objeto
 
 public:
-    //virtual string toString() = 0;
+    virtual string toString() = 0;
 
     Objeto(string nombre, int anioComprado, Estado estado); //Al inicializar seteamos con NULL la primera entrada a nombre de Niño
     Objeto();

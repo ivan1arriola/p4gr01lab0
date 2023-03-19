@@ -33,8 +33,12 @@ void Ninio::setTelefono(string phone){
   telefono = phone;
 }
 
-void Ninio::asignarObjeto(Objeto &obj){
-  objprest.push_back(obj);
+void Ninio::asignarLibro(Libro &l){
+  librosprest.push_back(l);
+}
+
+void Ninio::asignarJuegoMesa(JuegoMesa &jm){
+  juegosprest.push_back(jm);
 }
 
 string Ninio::getNombre(){
@@ -53,13 +57,24 @@ string Ninio::getTelefono(){
   return telefono;
 }
 
-/*int Ninio::tamVector(){
-  return objprest.capacity();
-}*/
+int Ninio::tamVectorLibros(){
+  return librosprest.capacity();
+}
 
-/*vector<string> Ninio::listarObjetosPrestados(){
-  
-}*/
+int Ninio::tamVectorJuegos(){
+  return juegosprest.capacity();
+}
+
+vector<string> Ninio::listarObjetosPrestados(){
+  vector<string> stringsObjetos;
+  for (int i = 0; i < librosprest.capacity(); i++){
+    stringsObjetos.push_back(librosprest[i].toString());
+  }
+  for (int j = 0; j < juegosprest.capacity(); j++){
+    stringsObjetos.push_back(juegosprest[j].toString());
+  }
+  return stringsObjetos;
+}
 
 Ninio::~Ninio(){
   
