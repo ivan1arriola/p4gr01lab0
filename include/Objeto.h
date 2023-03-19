@@ -1,14 +1,13 @@
+#ifndef OBJETO
+#define OBJETO
+
 #include <iostream>
 #include <string>
+#include "Estado.h"
 
 using namespace std;
 
-enum class Estado
-{
-    Nuevo,
-    BienConservado,
-    Roto
-};
+
 
 class Objeto
 {
@@ -31,3 +30,5 @@ public:
 
     virtual ~Objeto();
 };
+
+#endif

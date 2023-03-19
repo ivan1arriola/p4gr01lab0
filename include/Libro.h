@@ -1,3 +1,6 @@
+#ifndef LIBRO
+#define LIBRO
+
 #include <iostream>
 #include <string>
 #include "Objeto.h"
@@ -21,3 +24,5 @@ class Libro:public Objeto
 
         ~Libro();
 }
+
+#endif

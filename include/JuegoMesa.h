@@ -1,3 +1,6 @@
+#ifndef JUEGODEMESA
+#define JUEGODEMESA
+
 #include <iostream>
 #include <string>
 #include "Objeto.h"
@@ -21,3 +24,5 @@ class JuegoMesa:public Objeto
 
         ~JuegoMesa();
 }
+
+#endif
