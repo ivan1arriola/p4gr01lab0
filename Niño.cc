@@ -53,11 +53,17 @@ string Ninio::getTelefono(){
   return telefono;
 }
 
+int Ninio::getCantObjPrestados(){
+  return tamVectorObj;
+}
+
 // Operaciones Ninio - Objeto
 
 void Ninio::asignarObjeto(Objeto &obj){
   objetosPrestados.push_back(&obj); // Pasar puntero obj a lista de punteros objetosPrestados.
   obj.asignarNinio(*this); // asignar este niño al objeto obj.  
+
+  tamVectorObj = (int)objetosPrestados.size(); // Actualiza tamanio del vector
 }
 
 
@@ -66,7 +72,7 @@ void Ninio::asignarObjeto(Objeto &obj){
 vector<string> Ninio::listarObjetosPrestados(){
   vector<string> stringsObjetos;
 
-  for (int i = 0; i < (int)objetosPrestados.size(); i++){
+  for (int i = 0; i < tamVectorObj; i++){
   stringsObjetos.push_back(objetosPrestados[i]->toString());
   }
 

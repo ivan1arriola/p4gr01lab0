@@ -38,6 +38,7 @@ class Ninio{
     int getEdad(); //Retorna edad del niño
     string getDireccion(); //Retorna direccion del niño
     string getTelefono(); //Retorna telefono del niño
+    int getCantObjPrestados(); //Retorna cantidad de objetos prestados, tamanio de vector objetosPrestados
 
 
     //Operaciones Ninio - Objeto
