@@ -15,6 +15,7 @@ Ninio::Ninio(string name, int age, string address, string phone){
   edad = age;
   direccion = address;
   telefono = phone;
+  tamVectorObj = 0;
 }
 
 //Setters
@@ -63,7 +64,7 @@ void Ninio::asignarObjeto(Objeto &obj){
   objetosPrestados.push_back(&obj); // Pasar puntero obj a lista de punteros objetosPrestados.
   obj.asignarNinio(*this); // asignar este niño al objeto obj.  
 
-  tamVectorObj = (int)objetosPrestados.size(); // Actualiza tamanio del vector
+  tamVectorObj = objetosPrestados.size(); // Actualiza tamanio del vector
 }
 
 
@@ -71,9 +72,9 @@ void Ninio::asignarObjeto(Objeto &obj){
 
 vector<string> Ninio::listarObjetosPrestados(){
   vector<string> stringsObjetos;
-
   for (int i = 0; i < tamVectorObj; i++){
-  stringsObjetos.push_back(objetosPrestados[i]->toString());
+    string text = objetosPrestados[i]->toString();
+    stringsObjetos.push_back(text);
   }
 
   return stringsObjetos;

@@ -73,21 +73,24 @@ string n = "Nacidos de la bruma: El imperio final";
     tel = "29094141";
     Ninio n2(n, age, add, tel);
     
-    int taml = n1.tamVectorLibros();
-    int tamj = n1.tamVectorJuegos();
-    cout << "El tamaño del vector Libro es: " << taml << endl;
-    cout << "El tamaño del vector Juego es: " << tamj << endl;
+    int tam = n1.getCantObjPrestados();
+    cout << "La cantidad de objeto prestados a n1 es: " << tam << endl;
+    cout << "Le asignamos a n1, 3 objetos" << endl;
+    cout << "Resultado esperado: 3" << endl;
+    n1.asignarObjeto(j2);
+    n1.asignarObjeto(l1);
+    n1.asignarObjeto(j3);
+    tam = n1.getCantObjPrestados();
+    cout << "Resultado: " << tam << endl;
 
-    n1.asignarJuegoMesa(j2);
-    j2.asignarNinio(n1);
+    tam = n1.getCantObjPrestados();
+    cout << "La cantidad de objeto prestados es: " << tam << endl;
 
-    taml = n1.tamVectorLibros();
-    tamj = n1.tamVectorJuegos();
-    cout << "El tamaño del vector Libro es: " << taml << endl;
-    cout << "El tamaño del vector Juego es: " << tamj << endl;
 
+    
     vector<string> pepe = n1.listarObjetosPrestados();
-    for (int i = 0; i < pepe.capacity(); i++){
+    cout << "Se termino de ejecutar listarObjetosPrestados";
+    for (int i = 0; i < pepe.size(); i++){
         cout << pepe[i] << endl;
     }
 
