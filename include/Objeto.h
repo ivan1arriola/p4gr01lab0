@@ -27,7 +27,7 @@ public:
 
     string getNombre();
     int getAñoComprado();
-    Estado getEstado();
+    string getEstado();
 
     virtual ~Objeto();
 };
