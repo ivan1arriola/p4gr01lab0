@@ -12,8 +12,8 @@ int main(){
     Estado e = Roto;
     int c = 688;
     string au = "Brandon Sanderson";
-    Libro l1(n, a, e, c, au);
-    string ren = l1.toString();
+    Objeto *l1 = new Libro(n, a, e, c, au);
+    string ren = l1->toString();
     cout << "Objeto 1: " << endl;
     cout << ren << endl;
     
@@ -22,8 +22,8 @@ int main(){
     e = Nuevo;
     c = 240;
     au = "Camila Sosa Villada";
-    Libro l2(n, a, e, c, au);
-    ren = l2.toString();
+    Objeto *l2 = new Libro(n, a, e, c, au);
+    ren = l2->toString();
     cout << endl;
     cout << "Objeto 2: " << endl;
     cout << ren << endl;
@@ -33,8 +33,8 @@ int main(){
     e = Roto;
     c = 32;
     au = "Gemma Merino";
-    Libro l3(n, a, e, c, au);
-    ren = l3.toString();
+    Objeto *l3 = new Libro(n, a, e, c, au);
+    ren = l3->toString();
     cout << endl;
     cout << "Objeto 3: " << endl;
     cout << ren << endl;
@@ -44,8 +44,8 @@ int main(){
     e = Roto;
     int er = 7;
     int cj = 10;
-    JuegoMesa j1(n, a, e, er, cj);
-    ren = j1.toString();
+    Objeto *j1 = new JuegoMesa(n, a, e, er, cj);
+    ren = j1->toString();
     cout << endl;
     cout << "Objeto 4: " << endl;
     cout << ren << endl;
@@ -55,8 +55,8 @@ int main(){
     e = Nuevo;
     er = 7;
     cj = 4;
-    JuegoMesa j2(n, a, e, er, cj);
-    ren = j2.toString();
+    Objeto *j2 = new JuegoMesa(n, a, e, er, cj);
+    ren = j2->toString();
     cout << endl;
     cout << "Objeto 5: " << endl;
     cout << ren << endl;
@@ -66,8 +66,8 @@ int main(){
     e = Roto;
     er = 2;
     cj = 6;
-    JuegoMesa j3(n, a, e, er, cj);
-    ren = j3.toString();
+    Objeto *j3 = new JuegoMesa(n, a, e, er, cj);
+    ren = j3->toString();
     cout << endl;
     cout << "Objeto 6: " << endl;
     cout << ren << endl;
@@ -75,38 +75,38 @@ int main(){
     //Creamos vector con todos los objetos
 
     vector<Objeto*> objetos;
-    objetos.push_back(&j1);
-    objetos.push_back(&j2);
-    objetos.push_back(&j3);
-    objetos.push_back(&l1);
-    objetos.push_back(&l2);
-    objetos.push_back(&l3);
+    objetos.push_back(j1);
+    objetos.push_back(j2);
+    objetos.push_back(j3);
+    objetos.push_back(l1);
+    objetos.push_back(l2);
+    objetos.push_back(l3);
 
     n = "Maria Laura";
     int age = 10;
     string add = "Nueva Palmira 1521";
     string tel = "099298190";
-    Ninio n1(n, age, add, tel);
+    Ninio *n1 = new Ninio(n, age, add, tel);
     
     n = "Alex";
     age = 5;
     add = "Humberto Primo 1501";
     tel = "29094141";
-    Ninio n2(n, age, add, tel);
+    Ninio *n2 = new Ninio(n, age, add, tel);
     
-    n1.asignarObjeto(j2);
-    n1.asignarObjeto(l1);
-    n1.asignarObjeto(j3);
-    vector<string> pepe1 = n1.listarObjetosPrestados();
+    n1->asignarObjeto(j2);
+    n1->asignarObjeto(l1);
+    n1->asignarObjeto(j3);
+    vector<string> pepe1 = n1->listarObjetosPrestados();
     cout << endl;
     cout << "Objetos prestados a Maria Laura: " << endl;
     for (int i = 0; i < pepe1.size(); i++){
         cout << pepe1[i] << endl;
     }
 
-    n2.asignarObjeto(j1);
-    n2.asignarObjeto(l3);
-    vector<string> pepe2 = n2.listarObjetosPrestados();
+    n2->asignarObjeto(j1);
+    n2->asignarObjeto(l3);
+    vector<string> pepe2 = n2->listarObjetosPrestados();
     cout << endl;
     cout << "Objetos prestados a Alex: " << endl;
     for (int j = 0; j < pepe2.size(); j++){
@@ -126,18 +126,31 @@ int main(){
             nombreNinio = objetos[i]->getNombreNinio();
             prestado = (nombreNinio != ""); // si el nombre del niño es una cadena vacía, no está asociado a ningún niño
             if(prestado){
-                objRoto.setNombreObjeto(nombre);
-                objRoto.setNombreNinio(nombreNinio);
-                objRoto.setPrestado(prestado);
+                objetosRotos.push_back(DTObjetoRoto(nombre, prestado, nombreNinio));
             }else{
-                objRoto.setNombreObjeto(nombre);
-                objRoto.setPrestado(prestado);
-                objRoto.setNombreNinio("");
+               objetosRotos.push_back(DTObjetoRoto(nombre, prestado)); 
             }
-            objetosRotos.push_back(objRoto);
         }
     }
 
+    cout << endl;
+    cout << endl;
+    cout << "Objetos rotos: " << endl;
+    for(int i = 0; i < objetosRotos.size(); i++){
+        cout << objetosRotos[i] << endl;
+    }
+
+    delete j1;
+
+    cout << endl;
+    cout << endl;
+    vector<string> pepe3 = n2->listarObjetosPrestados();
+    for (int j = 0; j < pepe3.size(); j++){
+        cout << pepe3[j] << endl;
+    }
+
+    cout << endl;
+    cout << endl;
     for(int i = 0; i < objetosRotos.size(); i++){
         cout << objetosRotos[i] << endl;
     }

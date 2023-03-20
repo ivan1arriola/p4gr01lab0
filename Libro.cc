@@ -50,4 +50,14 @@ string Libro::toString(){
     return texto;
 }
 
-Libro::~Libro(){}
+Libro::~Libro(){
+    if (getNinio() != NULL){
+    vector<Objeto*> nuevo_obj;
+    vector<Objeto*> viejo_obj = getNinio()->getObjetosPrestados();
+    for(int i = 0; i < viejo_obj.size(); i++){
+        if (viejo_obj[i]->toString() != this->toString())
+            nuevo_obj.push_back(viejo_obj[i]);
+    }
+    getNinio()->setObjetosPrestados(nuevo_obj);
+    }
+}

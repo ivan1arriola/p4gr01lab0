@@ -13,18 +13,6 @@ DTObjetoRoto::DTObjetoRoto(string n, bool p){
     prestado = p;
 }
 
-void DTObjetoRoto::setNombreObjeto(string n){
-    NombreObjeto = n;
-}
-
-void DTObjetoRoto::setPrestado(bool p){
-    prestado = p;
-}
-
-void DTObjetoRoto::setNombreNinio(string n){
-    NombreNinio = n;
-}
-
 string DTObjetoRoto::getNombreObjeto(){
     return NombreObjeto;
 }

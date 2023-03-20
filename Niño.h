@@ -31,6 +31,7 @@ class Ninio{
     void setEdad(int); //Asigna edad al niño
     void setDireccion(string); //Asigna direccion al niño
     void setTelefono(string); //Asigna telefono al niño
+    void setObjetosPrestados(vector<Objeto*>);
 
     //Getters
 
@@ -39,10 +40,11 @@ class Ninio{
     string getDireccion(); //Retorna direccion del niño
     string getTelefono(); //Retorna telefono del niño
     int getCantObjPrestados(); //Retorna cantidad de objetos prestados, tamanio de vector objetosPrestados
+    vector<Objeto*> getObjetosPrestados();
 
 
     //Operaciones Ninio - Objeto
-    void asignarObjeto(Objeto &obj); //Asigna un objeto al ninio, registra en objetosPrestados
+    void asignarObjeto(Objeto *&obj); //Asigna un objeto al ninio, registra en objetosPrestados
     vector<string> listarObjetosPrestados(); //Obtiene información de todos los objetos prestados a un niño en particular
     
 
