@@ -12,6 +12,7 @@ Objeto::Objeto(string n, int a, Estado e){
     nombre = n;
     anioComprado = a;
     estado = e;
+    prestadoA = NULL;
 }
 
 void Objeto::setNombre(string n){
@@ -40,6 +41,18 @@ int Objeto::getAnioComprado(){
 
 Estado Objeto::getEstado(){
     return estado;
+}
+
+//obtener nombre niño prestado para ponerlo en DTObjetoRoto
+string Objeto::getNombreNinio(){
+    string nombreNinio = "";
+
+    //si no se le prestó a nadie devuelve una cadena vacía
+    if (prestadoA != NULL){
+        nombreNinio = prestadoA->getNombre();
+    }
+
+    return nombreNinio;
 }
 
 Objeto::~Objeto(){

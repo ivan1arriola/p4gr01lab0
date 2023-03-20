@@ -8,6 +8,23 @@ DTObjetoRoto::DTObjetoRoto(string n,bool p, string nom){
     NombreNinio=nom;
 }
 
+DTObjetoRoto::DTObjetoRoto(string n, bool p){
+    NombreObjeto = n;
+    prestado = p;
+}
+
+void DTObjetoRoto::setNombreObjeto(string n){
+    NombreObjeto = n;
+}
+
+void DTObjetoRoto::setPrestado(bool p){
+    prestado = p;
+}
+
+void DTObjetoRoto::setNombreNinio(string n){
+    NombreNinio = n;
+}
+
 string DTObjetoRoto::getNombreObjeto(){
     return NombreObjeto;
 }

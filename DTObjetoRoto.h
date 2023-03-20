@@ -14,6 +14,10 @@ class DTObjetoRoto{
     public:
         DTObjetoRoto();
         DTObjetoRoto(string,bool,string);
+        DTObjetoRoto(string, bool);
+        void setNombreObjeto(string);
+        void setPrestado(bool);
+        void setNombreNinio(string);
         string getNombreObjeto();
         bool getPrestado();
         string getNombreNinio();

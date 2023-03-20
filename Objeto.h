@@ -34,6 +34,7 @@ public:
     string getNombre();
     int getAnioComprado();
     Estado getEstado();
+    string getNombreNinio();
 
     virtual ~Objeto();
 };
