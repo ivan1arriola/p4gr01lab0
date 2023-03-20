@@ -1,40 +1,44 @@
+# Define directories
+SRC_DIR = src
+INCLUDE_DIR = include
+CLASSES_DIR = $(SRC_DIR)/clases
+DATATYPES_DIR = $(SRC_DIR)/datatypes
 
-#directorios
-Clases_CC     =src/clases
-Clases_H    =include/clases
-DT_CC        =src/datatypes
-DT_H        =include/datatypes
-# Sistema_CPP =src/sistema
-# Sistema_H    =include/sistema
-CLASES_NOMBRES = JuegoMesa Libro Niño Objeto Estado
-CLASES_O = $(CLASES_NOMBRES:%=$(Clases_CC)/%.o)
+# Define file extensions
+CXX = g++
+CXXFLAGS = -Wall -I$(INCLUDE_DIR) -g
+SRCEXT = cpp
+HEADEXT = h
 
-DT_NOMBRES = DTObjetoRoto 
-DT_O = $(DT_NOMBRES:%=$(DT_CC)/%.o)
+# Define class and datatype names
+CLASSES = JuegoMesa Libro Niño Objeto Estado
+DATATYPES = DTObjetoRoto
 
-# SISTEMA_NOMBRES = Sistema
-# SISTEMA_O =$(SISTEMA_NOMBRES:%=$(Sistema_CPP)/%.o)
+# Define object file names
+CLASSES_OBJS = $(patsubst %,$(CLASSES_DIR)/%.o,$(CLASSES))
+DATATYPES_OBJS = $(patsubst %,$(DATATYPES_DIR)/%.o,$(DATATYPES))
 
-#Compilador 
-CC = g++
+# Define phony targets
+.PHONY: all clean
 
-#opciones de compilacion
-CCFLAGS = -Wall -I$(Clases_H) -g
+# Define default target
+all: main
 
+# Define rule for linking object files into the main executable
+main: main.o $(CLASSES_OBJS) $(DATATYPES_OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
-main.o: main.cpp $(CLASES_O) $(DT_O)
-    $(CC) $(CCFLAGS) -c $< -o $@
+# Define rules for compiling source files into object files
+$(CLASSES_DIR)/%.o: $(CLASSES_DIR)/%.$(SRCEXT) $(INCLUDE_DIR)/%.$(HEADEXT)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(Clases_CC)/%.o: $(Clases_CC)/%.cpp $(Clases_H)/%.h
-    $(CC) $(CCFLAGS) -c $< -o $@
+$(DATATYPES_DIR)/%.o: $(DATATYPES_DIR)/%.$(SRCEXT) $(INCLUDE_DIR)/%.$(HEADEXT)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(DT_CC)/%.o: $(DT_CC)/%.cpp $(DT_H)/%.h
-    $(CC) $(CCFLAGS) -c $< -o $@
+# Define rule for compiling the main source file into an object file
+main.o: $(SRC_DIR)/main.$(SRCEXT) $(CLASSES_OBJS) $(DATATYPES_OBJS)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-main: main.o $(CLASES_O) $(DT_O) 
-$(CC) $(CCFLAGS) $^ -o $@
-
-# Especificamos una regla phony para limpiar los archivos objeto y el ejecutable
-.PHONY: clean
+# Define rule for cleaning up object files and executables
 clean:
-    rm -f main.o $(CLASES_O) $(DT_O) main
+	rm -f main $(CLASSES_OBJS) $(DATATYPES_OBJS) main.o
