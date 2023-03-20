@@ -6,7 +6,24 @@
 #include <string>
 using namespace std;
 
-int main(){
+void deleteObjetoRoto(Objeto *obj, vector<DTObjetoRoto> &viejo_objRotos)
+{
+    if (obj->getEstado() == Roto)
+    {
+        string nombreObj = obj->getNombre();
+        delete obj;
+        vector<DTObjetoRoto> nuevo_objRotos;
+        for (int i = 0; i < (int)viejo_objRotos.size(); i++)
+        {
+            if (viejo_objRotos[i].getNombreObjeto() != nombreObj)
+                nuevo_objRotos.push_back(viejo_objRotos[i]);
+        }
+        viejo_objRotos = nuevo_objRotos;
+    }
+}
+
+int main()
+{
     string n = "Nacidos de la bruma: El imperio final";
     int a = 2022;
     Estado e = Roto;
@@ -16,7 +33,7 @@ int main(){
     string ren = l1->toString();
     cout << "Objeto 1: " << endl;
     cout << ren << endl;
-    
+
     n = "Las Malas";
     a = 2022;
     e = Nuevo;
@@ -27,7 +44,7 @@ int main(){
     cout << endl;
     cout << "Objeto 2: " << endl;
     cout << ren << endl;
-    
+
     n = "El cocodrilo al que no le gustaba el agua";
     a = 2016;
     e = Roto;
@@ -38,7 +55,7 @@ int main(){
     cout << endl;
     cout << "Objeto 3: " << endl;
     cout << ren << endl;
-    
+
     n = "Juego Uno";
     a = 2022;
     e = Roto;
@@ -49,7 +66,7 @@ int main(){
     cout << endl;
     cout << "Objeto 4: " << endl;
     cout << ren << endl;
-    
+
     n = "Mazo de cartas";
     a = 2019;
     e = Nuevo;
@@ -72,9 +89,9 @@ int main(){
     cout << "Objeto 6: " << endl;
     cout << ren << endl;
 
-    //Creamos vector con todos los objetos
+    // Creamos vector con todos los objetos
 
-    vector<Objeto*> objetos;
+    vector<Objeto *> objetos;
     objetos.push_back(j1);
     objetos.push_back(j2);
     objetos.push_back(j3);
@@ -87,74 +104,93 @@ int main(){
     string add = "Nueva Palmira 1521";
     string tel = "099298190";
     Ninio *n1 = new Ninio(n, age, add, tel);
-    
+
     n = "Alex";
     age = 5;
     add = "Humberto Primo 1501";
     tel = "29094141";
     Ninio *n2 = new Ninio(n, age, add, tel);
-    
+
     n1->asignarObjeto(j2);
     n1->asignarObjeto(l1);
     n1->asignarObjeto(j3);
-    vector<string> pepe1 = n1->listarObjetosPrestados();
+
+    vector<string> listaDeN1 = n1->listarObjetosPrestados();
     cout << endl;
     cout << "Objetos prestados a Maria Laura: " << endl;
-    for (int i = 0; i < pepe1.size(); i++){
-        cout << pepe1[i] << endl;
+    for (int i = 0; i < (int)listaDeN1.size(); i++)
+    {
+        cout << i << " - " << listaDeN1[i] << endl;
     }
 
     n2->asignarObjeto(j1);
     n2->asignarObjeto(l3);
-    vector<string> pepe2 = n2->listarObjetosPrestados();
+    vector<string> listaDeN2 = n2->listarObjetosPrestados();
     cout << endl;
     cout << "Objetos prestados a Alex: " << endl;
-    for (int j = 0; j < pepe2.size(); j++){
-        cout << pepe2[j] << endl;
+    for (int j = 0; j < (int)listaDeN2.size(); j++)
+    {
+        cout << j << " - " << listaDeN2[j] << endl;
     }
-    
+
     string nombre;
     bool prestado;
     string nombreNinio;
 
     vector<DTObjetoRoto> objetosRotos;
-    DTObjetoRoto objRoto;
 
-    for(int i=0; i<objetos.size(); i++){
-        if (objetos[i]->getEstado() == Roto){
+    for (int i = 0; i < (int)objetos.size(); i++)
+    {
+        if (objetos[i]->getEstado() == Roto)
+        {
             nombre = objetos[i]->getNombre();
             nombreNinio = objetos[i]->getNombreNinio();
             prestado = (nombreNinio != ""); // si el nombre del niño es una cadena vacía, no está asociado a ningún niño
-            if(prestado){
+            if (prestado)
+            {
                 objetosRotos.push_back(DTObjetoRoto(nombre, prestado, nombreNinio));
-            }else{
-               objetosRotos.push_back(DTObjetoRoto(nombre, prestado)); 
+            }
+            else
+            {
+                objetosRotos.push_back(DTObjetoRoto(nombre, prestado));
             }
         }
     }
 
     cout << endl;
     cout << endl;
+
     cout << "Objetos rotos: " << endl;
-    for(int i = 0; i < objetosRotos.size(); i++){
-        cout << objetosRotos[i] << endl;
-    }
-
-    delete j1;
-
-    cout << endl;
-    cout << endl;
-    vector<string> pepe3 = n2->listarObjetosPrestados();
-    for (int j = 0; j < pepe3.size(); j++){
-        cout << pepe3[j] << endl;
+    for (int i = 0; i < (int)objetosRotos.size(); i++)
+    {
+        cout << i << " - " << objetosRotos[i] << endl;
     }
 
     cout << endl;
     cout << endl;
-    for(int i = 0; i < objetosRotos.size(); i++){
-        cout << objetosRotos[i] << endl;
+
+    // Eliminamos uno de los objetos prestados a Alex
+    cout << "Eliminamos el objeto " << j1->getNombre() << endl;
+    deleteObjetoRoto(j1, objetosRotos);
+
+    cout << endl;
+    cout << endl;
+
+    cout << "Objetos rotos luego de borrar un juego de mesa: " << endl;
+    for (int i = 0; i < (int)objetosRotos.size(); i++)
+    {
+        cout << i << " - " << objetosRotos[i] << endl;
+    }
+
+    cout << endl;
+    cout << endl;
+
+    cout << "Objetos prestados a Alex luego de borrar un juego de mesa: " << endl;
+    listaDeN2 = n2->listarObjetosPrestados();
+    for (int j = 0; j < (int)listaDeN2.size(); j++)
+    {
+        cout << j << " - " << listaDeN2[j] << endl;
     }
 
     return 0;
 }
-
