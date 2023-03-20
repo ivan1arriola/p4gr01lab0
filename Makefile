@@ -1,5 +1,4 @@
-all: main
-.PHONY: all clean
+
 #directorios
 Clases_CC     =src/clases
 Clases_H    =include/clases
@@ -23,13 +22,19 @@ CC = g++
 CCFLAGS = -Wall -I$(Clases_H) -g
 
 
-main.o: main.cpp 
+main.o: main.cpp $(CLASES_O) $(DT_O)
     $(CC) $(CCFLAGS) -c $< -o $@
 
-$(Clases_CC)/%.o: $(Clases_CC)/%.cc $(Clases_H)/%.h
+$(Clases_CC)/%.o: $(Clases_CC)/%.cpp $(Clases_H)/%.h
     $(CC) $(CCFLAGS) -c $< -o $@
 
-$(DT_CC)/%.o: $(DT_CC)/%.cc $(DT_H)/%.h
+$(DT_CC)/%.o: $(DT_CC)/%.cpp $(DT_H)/%.h
     $(CC) $(CCFLAGS) -c $< -o $@
 
-main: main $(CLASES_O) $(DT_O) 
+main: main.o $(CLASES_O) $(DT_O) 
+$(CC) $(CCFLAGS) $^ -o $@
+
+# Especificamos una regla phony para limpiar los archivos objeto y el ejecutable
+.PHONY: clean
+clean:
+    rm -f main.o $(CLASES_O) $(DT_O) main
