@@ -56,5 +56,11 @@ string Objeto::getNombreNinio(){
 }
 
 Objeto::~Objeto(){
-
+    vector<string> lista = prestadoA.listarObjetosPrestados();
+    int i=0;
+    while(i<lista.size() && (lista[i] != prestadoA.toString())){
+        i++;
+    }
+    prestadoA.listarObjetosPrestados().erase(v.begin() + i);
+    lista.erase(v.begin() + i);
 }

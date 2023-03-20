@@ -22,6 +22,7 @@ class DTObjetoRoto{
         bool getPrestado();
         string getNombreNinio();
         ~DTObjetoRoto();
+    friend ostream &operator<<(ostream &o,DTObjetoRoto &d);    
 };
 
 #endif

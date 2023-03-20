@@ -112,7 +112,7 @@ int main(){
     for (int j = 0; j < pepe2.size(); j++){
         cout << pepe2[j] << endl;
     }
-
+    
     string nombre;
     bool prestado;
     string nombreNinio;
@@ -138,11 +138,8 @@ int main(){
         }
     }
 
-    DTObjetoRoto objetopedro;
-
     for(int i = 0; i < objetosRotos.size(); i++){
-        objetopedro = objetosRotos[i];
-        cout << objetopedro << endl;
+        cout << objetosRotos[i] << endl;
     }
 
     return 0;
