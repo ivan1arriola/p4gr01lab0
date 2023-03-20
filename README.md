@@ -1,5 +1,7 @@
 # p4gr01lab0
-Tarea grupal de Programacion 4 - FING
+Tarea grupal de Programacion 4 
+
+**(informacion mas detallada en PDF)**
 
 Universidad de la República | Facultad de Ingeniería | Instituto de Computación
 Programación 4 - 2023
