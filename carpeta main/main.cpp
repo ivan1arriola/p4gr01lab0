@@ -1,7 +1,7 @@
-#include "include/clases/Libro.h"
-#include "include/clases/JuegoMesa.h"
-#include "include/clases/Niño.h"
-#include "include/datatypes/DTObjetoRoto.h"
+#include "Libro.h"
+#include "JuegoMesa.h"
+#include "Niño.h"
+#include "DTObjetoRoto.h"
 #include <iostream>
 #include <string>
 using namespace std;
