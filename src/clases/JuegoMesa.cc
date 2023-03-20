@@ -1,4 +1,5 @@
-#include "JuegoMesa.h"
+#include "../../include/clases/JuegoMesa.h"
+
 #include <sstream>
 
 //constructor de todos los atributos, hereda del constructor de objeto

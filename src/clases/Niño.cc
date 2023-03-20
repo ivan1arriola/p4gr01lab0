@@ -1,8 +1,8 @@
 #include <string>
 #include <vector>
-#include "Niño.h"
-#include "Libro.h"
-#include "JuegoMesa.h"
+#include "../../include/clases/Niño.h"
+#include "../../include/clases/Libro.h"
+#include "../../include/clases/JuegoMesa.h"
 
 using namespace std;
 

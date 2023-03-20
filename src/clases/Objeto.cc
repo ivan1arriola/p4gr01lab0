@@ -1,6 +1,6 @@
 #include <string>
 #include <vector>
-#include "Objeto.h"
+#include "../../include/clases/Objeto.h"
 
 using namespace std;
 

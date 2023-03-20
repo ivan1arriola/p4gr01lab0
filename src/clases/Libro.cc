@@ -1,4 +1,4 @@
-#include "Libro.h"
+#include "../../include/clases/Libro.h"
 #include <sstream>
 #include <iostream>
 using namespace std;
