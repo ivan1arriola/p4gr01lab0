@@ -36,7 +36,7 @@ $(DATATYPES_DIR)/%.o: $(DATATYPES_DIR)/%.$(SRCEXT) $(INCLUDE_DIR)/%.$(HEADEXT)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Define rule for compiling the main source file into an object file
-main.o: $(SRC_DIR)/main.$(SRCEXT) $(CLASSES_OBJS) $(DATATYPES_OBJS)
+main.o: main.$(SRCEXT) $(CLASSES_OBJS) $(DATATYPES_OBJS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Define rule for cleaning up object files and executables
